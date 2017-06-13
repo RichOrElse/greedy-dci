@@ -1,8 +1,18 @@
 # Greedy::DCI
 
-Toolkit for rapid prototyping of interactors, use cases and service objects. Using DCI (Data, context and interaction) 
-the new programming paradigm from the inventor of the MVC pattern. This implimentation consumes excessive resources (hence the name) 
-and is not recommended for production.
+A Toolkit for rapid prototyping of interactors, use cases and service objects, using the DCI paradigm.
+This implementation consumes excessive resources (hence the name) and is **not recommended for production use**.
+
+## What is DCI?
+
+DCI (Data, context and interaction) is a new Role-Based Paradigm for specifying collaborating objects.
+Trygve Reenskaug is the originator best known for formulating the MVC (model–view–controller) pattern.
+
+You can read more about DCI at the following links:
+
+* http://dci.github.io/
+* http://dci-in-ruby.info/
+* http://fulloo.info/
 
 ## Installation
 
@@ -22,10 +32,15 @@ Or install it yourself as:
 
 ## Usage
 
-
 ```ruby
+require 'greedy-dci'
+
+# Data
+
 Purchase = Struct.new(:toy, :buyer)
 Deliver = Struct.new(:toy, :recipient, :purchase, :status)
+
+# Behaviors
 
 module Buyer
   def buy(toy)
@@ -38,6 +53,8 @@ module Recipient
     Deliver.new purchased.toy, self, purchased, :pending
   end
 end
+
+# Contexts
 
 PurchaseToy = Greedy.context { |purchaser|
                                 using purchaser.as Buyer
@@ -60,6 +77,8 @@ GiftToy = Greedy.context { |gifter, giftee|
                             end
                           }
 
+# Interactions
+
 finn_purchase_toy = PurchaseToy[purchaser: 'Finn']
 finn_purchase_toy.call 'Rusty sword'
 finn_purchase_toy.('Armor of Zeldron')
@@ -67,6 +86,8 @@ finn_purchase_toy['The Enchiridion']
 
 ['Card Wars', 'Ice Ninja Manual', 'Bacon'].each &GiftToy[gifter: 'Jake', giftee: 'Finn']
 ```
+
+[View more examples](https://github.com/RichOrElse/greedy-dci/tree/master/examples)
 
 ## Development
 
@@ -76,7 +97,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/richorelse/greedy-dci.
+Bug reports and pull requests are welcome on GitHub at https://github.com/RichOrElse/greedy-dci.
 
 
 ## License

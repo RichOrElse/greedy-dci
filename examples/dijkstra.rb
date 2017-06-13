@@ -1,6 +1,8 @@
 require_relative 'dijkstra/data'
+# See https://github.com/RichOrElse/greedy-dci/blob/master/test/dijkstra_test.rb
 
 # Behaviors
+
 module Map
   def distance_between(a, b)
     @distances[Edge.new(a, b)]
@@ -26,9 +28,10 @@ module DestinationNode
   end
 end
 
+# Contexts
+
 extend Greedy::DCI
 
-# Context
 Distance = context do |within|
   using within.as Map
 

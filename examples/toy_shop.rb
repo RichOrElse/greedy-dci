@@ -1,4 +1,5 @@
 require 'greedy-dci'
+
 # Data
 
 Purchase = Struct.new(:toy, :buyer)
@@ -42,6 +43,7 @@ GiftToy = Greedy.context { |gifter, giftee|
                           }
 
 # Interactions
+
 finn_purchase_toy = PurchaseToy[purchaser: 'Finn']
 finn_purchase_toy.call 'Rusty sword'
 finn_purchase_toy.('Armor of Zeldron')
