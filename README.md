@@ -91,6 +91,24 @@ finn_purchase_toy['The Enchiridion']
 
 [View more examples](https://github.com/RichOrElse/greedy-dci/tree/master/examples)
 
+## Context methods
+
+### to_proc
+
+Returns call method as a Proc.
+
+```ruby
+['Card Wars', 'Ice Ninja Manual', 'Bacon'].map &GiftToy[gifter: 'Jake', giftee: 'Finn']
+```
+
+### context[params,...]
+
+Square brackets are alias for call method.
+
+```ruby
+TransferMoney[from: source_account, to: destination_account][amount: 100]
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
