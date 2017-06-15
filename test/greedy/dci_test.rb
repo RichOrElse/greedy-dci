@@ -15,4 +15,10 @@ class Greedy::DciTest < Minitest::Test
     assert ctx[input: nil].to_proc
     assert_equal :output, ctx[input: nil].to_proc.call
   end
+
+  def test_context_square_brackets
+    ctx = Greedy.context { |a| def call(b:) a + b end }
+
+    assert_equal 3, ctx[a: 1][b: 2]
+  end
 end
