@@ -1,4 +1,4 @@
-require 'greedy-dci'
+require 'greedy/dci'
 
 # Data
 
