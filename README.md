@@ -5,7 +5,7 @@
 A Toolkit for rapid prototyping of interactors, use cases and service objects, using the DCI paradigm.
 
 > **WARNING!**
-> This implementation will blow the method cache, while consuming excessive resources (hence the name), therefore **production usage is seriously discouraged**. Instead, use of a [Wrapper Based alternative](https://github.com/RichOrElse/wrapper-based) is highly recommended.
+> This implementation will blow the method cache, slow down performance and consume excessive resources (*hence the name*), therefore **production usage is seriously discouraged**. Instead, use of a [Wrapper Based alternative](https://github.com/RichOrElse/wrapper-based) is highly recommended.
 
 ## What is DCI?
 
