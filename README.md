@@ -3,7 +3,9 @@
 [![Gem Version](https://badge.fury.io/rb/greedy-dci.svg)](https://badge.fury.io/rb/greedy-dci)
 
 A Toolkit for rapid prototyping of interactors, use cases and service objects, using the DCI paradigm.
-This implementation consumes excessive resources (hence the name) and is **not recommended for production use**.
+
+> **WARNING!**
+> This implementation will blow the method cache, while consuming excessive resources (hence the name), therefore **production usage is seriously discouraged**. Instead, use of a [Wrapper Based alternative](https://github.com/RichOrElse/wrapper-based) is highly recommended.
 
 ## What is DCI?
 
